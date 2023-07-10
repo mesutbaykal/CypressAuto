@@ -1,0 +1,20 @@
+/// <reference types="cypress" />
+
+describe("Find or Get Elements by using locators", () => {
+  beforeEach(() => {
+    cy.clearCookies();
+    cy.visit("/login");
+  });
+
+  it("Check different locators", () => {
+    // by css locator
+    cy.get("input[name='username']").type("Mesut"); //every statement creates an object to be interacted, and next command makes operation to the object created at previous statement
+    cy.get("[type='text']").clear();
+
+    cy.get("input").each((item, index, list) => {
+      //assert the length of the list is 2
+      expect(list).to.have.length(2);
+      expect(item).to.have.attr("type");
+    });
+  });
+});

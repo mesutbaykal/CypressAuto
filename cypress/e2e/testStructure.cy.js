@@ -14,10 +14,10 @@ describe("Context: My First Tests", () => {
   afterEach(() => {
     //similar to afterMethod in TestNG
   });
-  it("Open a web application", () => {
+  it.skip("Open a web application", () => {
     cy.visit("https://practice.cydeo.com/registration_form");
   });
-  it("Test 2", () => {
+  xit("Test 2", () => {
     expect(false).to.equal(false);
   });
   it("Test 3", () => {
