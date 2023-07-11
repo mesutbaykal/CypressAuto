@@ -16,5 +16,14 @@ describe("Find or Get Elements by using locators", () => {
       expect(list).to.have.length(2);
       expect(item).to.have.attr("type");
     });
+    //by attribute name
+    cy.get("[type]");
+
+    //by className
+    cy.get(".btn.btn-primary");
+    //by id
+    cy.get("#wooden_spoon");
+    //if I want to use text: no xpath in cypress,but there is a way
+    cy.get("button").should("contain", "Login").click();
   });
 });
