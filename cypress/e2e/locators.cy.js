@@ -26,4 +26,26 @@ describe("Find or Get Elements by using locators", () => {
     //if I want to use text: no xpath in cypress,but there is a way
     cy.get("button").should("contain", "Login").click();
   });
+
+  it("Check finding elements by traveling through DOM", () => {
+    //travel to find the login button
+    cy.get('input[name="username"]')
+      .parents("form")
+      .find("button")
+      .should("contain", "login")
+      .click();
+  });
+
+  it.only("Check different type of assertions", () => {
+    //Cypress itself bundles assertions provided by Chai,Sinon and jQuery
+    //Should Assertion
+    cy.get("#wooden_spoon")
+      .should("contain", "login")
+      .and("have.class", "btn btn-primary");
+    //Expect Assertion
+    cy.get("#wooden_spoon").then((buttonElement) => {
+      expect(buttonElement).to.have.text("Login");
+      expect(buttonElement).to.have.class("btn btn-primary");
+    });
+  });
 });
