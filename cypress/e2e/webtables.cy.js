@@ -9,7 +9,7 @@ describe('Cypress WebTable Tests', { baseUrl: 'https://demoqa.com' }, () => {
     cy.visit('/webtables');
   });
 
-  xit('Check finding and editing a record', () => {
+  it('Check finding and editing a record', () => {
     /**
      * locate table body - then naviagte through this element to find Alden, then update info with another person
      * 1. get me table body
